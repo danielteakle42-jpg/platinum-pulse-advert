@@ -1,0 +1,260 @@
+:root {
+  --bg: #040816;
+  --panel: rgba(8, 15, 40, 0.72);
+  --panel-strong: rgba(10, 19, 54, 0.88);
+  --line: rgba(147, 188, 255, 0.32);
+  --text: #eef5ff;
+  --muted: rgba(230, 239, 255, 0.76);
+  --glow: #76b3ff;
+  --glow-2: #d7ebff;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('assets/background.png') center center / cover no-repeat;
+  filter: saturate(1.2) contrast(1.05);
+  transform: scale(1.03);
+}
+
+.page-shell {
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(118, 179, 255, 0.16), transparent 30%),
+    linear-gradient(180deg, rgba(1, 5, 18, 0.3), rgba(1, 4, 14, 0.9));
+}
+
+.poster {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.hero-card,
+.qr-panel,
+.copy-strip {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(6, 11, 32, 0.7), rgba(6, 12, 38, 0.88));
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 35px rgba(62, 132, 255, 0.15), inset 0 0 20px rgba(184, 223, 255, 0.04);
+}
+
+.hero-card {
+  padding: 40px;
+  border-radius: 32px;
+}
+
+.brand-mark-wrap {
+  width: 126px;
+  height: 126px;
+  border-radius: 50%;
+  padding: 6px;
+  background: radial-gradient(circle at 30% 30%, var(--glow-2), rgba(118, 179, 255, 0.2));
+  box-shadow: 0 0 30px rgba(118, 179, 255, 0.45);
+}
+
+.brand-mark {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.eyebrow,
+.mini-label,
+.badge,
+.handle {
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.eyebrow,
+.mini-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.hero-card h1 {
+  margin: 18px 0 16px;
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.hero-card h1 span {
+  color: #8ec5ff;
+  text-shadow: 0 0 18px rgba(118, 179, 255, 0.55);
+}
+
+.lead {
+  max-width: 46ch;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(161, 205, 255, 0.25);
+  background: rgba(150, 202, 255, 0.08);
+  font-size: 0.72rem;
+}
+
+.qr-panel {
+  padding: 28px;
+  border-radius: 32px;
+}
+
+.qr-header {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.qr-header h2 {
+  margin: 6px 0 0;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.handle {
+  display: inline-block;
+  color: #a9d0ff;
+  text-decoration: none;
+  font-size: 0.74rem;
+  line-height: 1.5;
+  text-align: right;
+}
+
+.qr-card {
+  margin-top: 22px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(160, 205, 255, 0.25);
+  background: rgba(255,255,255,0.96);
+  padding: 12px;
+}
+
+.qr-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.button {
+  flex: 1;
+  text-decoration: none;
+  text-align: center;
+  padding: 14px 18px;
+  border-radius: 16px;
+  font-weight: 700;
+}
+
+.button.primary {
+  color: #03101f;
+  background: linear-gradient(180deg, #d9ecff, #8bc3ff);
+}
+
+.button.secondary {
+  color: var(--text);
+  border: 1px solid rgba(172, 211, 255, 0.22);
+  background: rgba(162, 208, 255, 0.08);
+}
+
+.copy-strip {
+  grid-column: 1 / -1;
+  border-radius: 28px;
+  padding: 22px 24px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+}
+
+.copy-block h3 {
+  margin: 6px 0 10px;
+  font-size: 1.5rem;
+}
+
+.copy-block p,
+.copy-block li {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.copy-block ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+}
+
+@media (max-width: 920px) {
+  .poster,
+  .copy-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .poster {
+    padding: 18px;
+  }
+
+  .hero-card,
+  .qr-panel,
+  .copy-strip {
+    border-radius: 24px;
+  }
+
+  .hero-card,
+  .qr-panel {
+    padding: 24px;
+  }
+
+  .qr-header,
+  .actions {
+    flex-direction: column;
+  }
+
+  .handle {
+    text-align: left;
+  }
+}
